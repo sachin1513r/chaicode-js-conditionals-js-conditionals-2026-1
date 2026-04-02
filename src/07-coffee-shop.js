@@ -32,37 +32,32 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
-  const sizePrices = {
-    small: 3.00,
-    medium: 4.00,
-    large: 5.00
+  const sizePrice ={
+    small:3.00,
+    medium:4.00,
+    large:5.00
   };
-
-  const typePrices = {
-    regular: 0.00,
-    latte: 1.00,
-    cappuccino: 1.50,
-    mocha: 2.00
+  const typePrice ={
+    regular:0.00,
+    latte:1.00,
+    cappuccino:1.50,
+    mocha:2.00
   };
-
-  // ❌ Invalid size or type
-  if (!sizePrices.hasOwnProperty(size) || !typePrices.hasOwnProperty(type)) {
+  if(!sizePrice.hasOwnProperty(size)||!typePrice.hasOwnProperty(type)){
     return -1;
   }
-
-  let total = sizePrices[size] + typePrices[type];
-
-  // ✅ Extras
-  if (extras.whippedCream) {
-    total += 0.50;
+  let total=sizePrice[size]+typePrice[type];
+  if(extras.extraShot){
+    total=total+0.75;
   }
-
-  if (extras.extraShot) {
-    total += 0.75;
-  }
-
-  // ✅ Round to 2 decimal places
-  return Number(total.toFixed(2));
+if(extras.whippedCream){
+  total=total+0.5
 }
-// 💡 Important Fix (Your Mistake)
+return Number(total.toFixed(2))
+  
+
+
+  }
+
+
 
