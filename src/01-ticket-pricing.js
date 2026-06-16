@@ -24,27 +24,25 @@
  */
 export function getTicketPrice(age, isWeekend) {
   // invalid input
-  if (age < 0 || isNaN(age)) {
+  if (typeof(age)!=="number"|| isNaN(age)|| age<0 ){
     return -1;
   }
-
   let price;
-
-  // age groups
-  if (age <= 12) {
+  if(age<=12){
     price = 8;
-  } else if (age <= 17) {
+  }
+  else if(age<=17){
     price = 12;
-  } else if (age <= 59) {
+  }
+  else if(age<=59){
     price = 15;
-  } else {
+
+  }
+  else{
     price = 10;
   }
-
-  // weekend surcharge
-  if (isWeekend) {
-    price += 3;
+  if(isWeekend){
+    price+=3;
   }
-
   return price;
 }
