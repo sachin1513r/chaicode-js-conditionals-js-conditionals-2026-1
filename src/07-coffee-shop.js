@@ -31,33 +31,27 @@
  * @returns {number} Total price or -1 for invalid input
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
-  // Your code here
+  //  Your code here  
   const sizePrice ={
-    small:3.00,
-    medium:4.00,
-    large:5.00
-  };
+    small: 3.00,
+    medium : 4.00,
+    large : 5.00
+  }
   const typePrice ={
-    regular:0.00,
-    latte:1.00,
-    cappuccino:1.50,
-    mocha:2.00
-  };
-  if(!sizePrice.hasOwnProperty(size)||!typePrice.hasOwnProperty(type)){
+    regular : 0.00,
+    latte : 1.00,
+    cappuccino : 1.5,
+    mocha : 2.00
+  }
+  if(!sizePrice.hasOwnProperty(size)|| !typePrice.hasOwnProperty(type)){
     return -1;
   }
-  let total=sizePrice[size]+typePrice[type];
+  let totalPrice = sizePrice[size]+ typePrice[type];
+  if(extras.whippedCream){
+    totalPrice+=0.50;
+  }
   if(extras.extraShot){
-    total=total+0.75;
+    totalPrice+=0.75;
   }
-if(extras.whippedCream){
-  total=total+0.5
+  return Number(totalPrice.toFixed(2));
 }
-return Number(total.toFixed(2))
-  
-
-
-  }
-
-
-

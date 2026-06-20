@@ -27,4 +27,23 @@
  */
 export function calculateTax(income) {
   // Your code here
+  
+  if (income <= 0) return 0;
+
+  const brackets = [
+    { limit: 70000, rate: 0.3 },
+    { limit: 30000, rate: 0.2 },
+    { limit: 10000, rate: 0.1 }
+  ];
+
+  let tax = 0;
+
+  for (const bracket of brackets) {
+    if (income > bracket.limit) {
+      tax += (income - bracket.limit) * bracket.rate;
+      income = bracket.limit;
+    }
+  }
+
+  return tax;
 }
